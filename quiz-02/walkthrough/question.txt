@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int getSnackCode(int code);
+int calculateCalories(int code);
+int displaySnack(int calories);
+
+int main(void) {
+    int code = 4;
+    int calories = getSnackCode(code);
+    printf("Calories: %d\n", calories);
+
+    calories = displaySnack(calories);
+    printf("Final: %d\n", calories);
+
+    return 0;
+}
+
+int getSnackCode(int code) {
+    printf("Snack Code: %d\n", code);
+    return calculateCalories(code + 1);
+}
+
+int calculateCalories(int code) {
+    int calories = 100;
+
+    if (code != 4 && code % 2 == 0) {
+        calories += 50;
+    } else if (code == 4 || code == 5) {
+        calories += 100;
+    }
+
+    printf("Calculated: %d\n", calories);
+
+    return calories;
+}
+
+int displaySnack(int calories) {
+    printf("Dispensing\n");
+    return calories + 10;
+}
